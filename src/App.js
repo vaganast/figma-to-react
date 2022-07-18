@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function App() {
+
+import { DrawerLeft } from './components'
+
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Inter',      
+      'sans-serif;',
+    ].join(','), 
+    tableRows: {
+      fontWeight:400, 
+      fontSize:'13px', 
+      lineHeight:'16px', 
+      letterSpacing:'-0.01em', 
+      color:'#202020', 
+      }
+    },
+    
+    
+  
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+    <DrawerLeft />
+    
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
